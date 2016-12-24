@@ -18,7 +18,9 @@ describe( 'lib/uuid', function() {
 
             it( 'normal operation', function() {
 
-                let instance = new UUIDSchema();
+                let parseSchema = sinon.stub();
+
+                let instance = new UUIDSchema( parseSchema );
 
                 expect( instance.engineFuncName ).to.equal( 'string' );
             });
@@ -35,6 +37,8 @@ describe( 'lib/uuid', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let uuidSchema = { };
 
                     uuidSchema.required = sinon.stub().returns( uuidSchema );
@@ -46,7 +50,7 @@ describe( 'lib/uuid', function() {
                         string: sinon.stub().returns( uuidSchema )
                     };
 
-                    let instance = new UUIDSchema();
+                    let instance = new UUIDSchema( parseSchema );
 
                     let config = test[1]
 
@@ -75,6 +79,8 @@ describe( 'lib/uuid', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let uuidSchema = { };
 
                     uuidSchema.required = sinon.stub().returns( uuidSchema );
@@ -86,7 +92,7 @@ describe( 'lib/uuid', function() {
                         string: sinon.stub().returns( uuidSchema )
                     };
 
-                    let instance = new UUIDSchema();
+                    let instance = new UUIDSchema( parseSchema );
 
                     let config = test[1]
 
@@ -116,6 +122,8 @@ describe( 'lib/uuid', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let uuidSchema = { };
 
                     uuidSchema.required = sinon.stub().returns( uuidSchema );
@@ -127,7 +135,7 @@ describe( 'lib/uuid', function() {
                         string: sinon.stub().returns( uuidSchema )
                     };
 
-                    let instance = new UUIDSchema();
+                    let instance = new UUIDSchema( parseSchema );
 
                     let config = test[1]
 
@@ -158,6 +166,8 @@ describe( 'lib/uuid', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let uuidSchema = { };
 
                     uuidSchema.required = sinon.stub().returns( uuidSchema );
@@ -169,7 +179,7 @@ describe( 'lib/uuid', function() {
                         string: sinon.stub().returns( uuidSchema )
                     };
 
-                    let instance = new UUIDSchema();
+                    let instance = new UUIDSchema( parseSchema );
 
                     let config = test[1]
 
@@ -200,6 +210,8 @@ describe( 'lib/uuid', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let uuidSchema = { };
 
                     uuidSchema.required = sinon.stub().returns( uuidSchema );
@@ -211,7 +223,7 @@ describe( 'lib/uuid', function() {
                         string: sinon.stub().returns( uuidSchema )
                     };
 
-                    let instance = new UUIDSchema();
+                    let instance = new UUIDSchema( parseSchema );
 
                     let config = test[1]
 
@@ -240,6 +252,8 @@ describe( 'lib/uuid', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let uuidSchema = { };
 
                     uuidSchema.required = sinon.stub().returns( uuidSchema );
@@ -251,7 +265,7 @@ describe( 'lib/uuid', function() {
                         string: sinon.stub().returns( uuidSchema )
                     };
 
-                    let instance = new UUIDSchema();
+                    let instance = new UUIDSchema( parseSchema );
 
                     let config = test[1]
 

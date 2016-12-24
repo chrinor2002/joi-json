@@ -16,7 +16,9 @@ describe( 'lib/string', function() {
 
             it( 'normal operation', function() {
 
-                let instance = new StringSchema();
+                let parseSchema = sinon.stub();
+
+                let instance = new StringSchema( parseSchema );
 
                 expect( instance.engineFuncName ).to.equal( 'string' );
             });
@@ -33,6 +35,8 @@ describe( 'lib/string', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let stringSchema = { };
 
                     stringSchema.required = sinon.stub().returns( stringSchema );
@@ -43,7 +47,7 @@ describe( 'lib/string', function() {
                         string: sinon.stub().returns( stringSchema )
                     };
 
-                    let instance = new StringSchema();
+                    let instance = new StringSchema( parseSchema );
 
                     let config = test[1]
 
@@ -69,6 +73,8 @@ describe( 'lib/string', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let stringSchema = { };
 
                     stringSchema.required = sinon.stub().returns( stringSchema );
@@ -79,7 +85,7 @@ describe( 'lib/string', function() {
                         string: sinon.stub().returns( stringSchema )
                     };
 
-                    let instance = new StringSchema();
+                    let instance = new StringSchema( parseSchema );
 
                     let config = test[1]
 

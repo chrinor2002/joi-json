@@ -16,7 +16,9 @@ describe( 'lib/email', function() {
 
             it( 'normal operation', function() {
 
-                let instance = new EmailSchema();
+                let parseSchema = sinon.stub();
+
+                let instance = new EmailSchema( parseSchema );
 
                 expect( instance.engineFuncName ).to.equal( 'string' );
             });
@@ -33,6 +35,8 @@ describe( 'lib/email', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let emailSchema = { };
 
                     emailSchema.required = sinon.stub().returns( emailSchema );
@@ -44,7 +48,7 @@ describe( 'lib/email', function() {
                         string: sinon.stub().returns( emailSchema )
                     };
 
-                    let instance = new EmailSchema();
+                    let instance = new EmailSchema( parseSchema );
 
                     let config = test[1]
 
@@ -73,6 +77,8 @@ describe( 'lib/email', function() {
 
                 it( test[0], function() {
 
+                    let parseSchema = sinon.stub();
+
                     let emailSchema = { };
 
                     emailSchema.required = sinon.stub().returns( emailSchema );
@@ -84,7 +90,7 @@ describe( 'lib/email', function() {
                         string: sinon.stub().returns( emailSchema )
                     };
 
-                    let instance = new EmailSchema();
+                    let instance = new EmailSchema( parseSchema );
 
                     let config = test[1]
 

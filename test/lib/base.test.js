@@ -16,8 +16,11 @@ describe( 'lib/base', function() {
 
             it( 'normal operation', function() {
 
-                let instance = new BaseSchema( 'any' );
+                let parserFunc = sinon.stub();
 
+                let instance = new BaseSchema( parserFunc, 'any' );
+
+                expect( instance.parseSchema ).to.equal( parserFunc );
                 expect( instance.engineFuncName ).to.equal( 'any' );
             });
         });
@@ -25,6 +28,8 @@ describe( 'lib/base', function() {
         describe( '.parse', function() {
 
             it( 'normal operation', function() {
+
+                let parserFunc = sinon.stub();
 
                 let specialSchema = { };
 
@@ -36,7 +41,7 @@ describe( 'lib/base', function() {
                     special: sinon.stub().returns( specialSchema )
                 };
 
-                let instance = new BaseSchema( 'special' );
+                let instance = new BaseSchema( parserFunc, 'special' );
 
                 let config = {
 
@@ -60,6 +65,8 @@ describe( 'lib/base', function() {
 
             it( 'unknown method', function() {
 
+                let parserFunc = sinon.stub();
+
                 let specialSchema = { };
 
                 let engine = {
@@ -67,7 +74,7 @@ describe( 'lib/base', function() {
                     special: sinon.stub().returns( specialSchema )
                 };
 
-                let instance = new BaseSchema( 'special' );
+                let instance = new BaseSchema( parserFunc, 'special' );
 
                 let config = {
 
